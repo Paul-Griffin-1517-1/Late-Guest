@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://sphyq4i5acjq"]
+[gd_scene load_steps=7 format=3 uid="uid://sphyq4i5acjq"]
 
 [ext_resource type="Texture2D" uid="uid://ca1eutjh31cos" path="res://Standing.png" id="1_c8jgk"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_hglta"]
+[ext_resource type="Texture2D" uid="uid://byosmmkkekb1h" path="res://icon.svg" id="3_7cuff"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e48ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iedl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oydw"]
+size = Vector2(128, 128)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(1249, 424)
+collision_mask = 3
 script = ExtResource("1_hglta")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -19,6 +24,13 @@ texture = ExtResource("1_c8jgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(4.6245, 4.6245)
+shape = SubResource("CapsuleShape2D_e48ye")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+scale = Vector2(5.50047, 5.50047)
 shape = SubResource("CapsuleShape2D_e48ye")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -33,3 +45,19 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1195, 616)
+collision_layer = 2
+collision_mask = 3
+mass = 0.1
+freeze_mode = 1
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("3_7cuff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_4oydw")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]

@@ -1,4 +1,6 @@
+Area2D
 CollisionShape2D
+RigidBody2D
 ColorRect
 StaticBody2D
 Sprite2D
