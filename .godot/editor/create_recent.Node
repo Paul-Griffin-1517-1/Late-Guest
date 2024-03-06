@@ -1,0 +1,6 @@
+CollisionShape2D
+ColorRect
+StaticBody2D
+Sprite2D
+CharacterBody2D
+Node3D
