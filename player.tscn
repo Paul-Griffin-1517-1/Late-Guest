@@ -61,7 +61,7 @@ scale_curve = SubResource("CurveTexture_x00yd")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_don5o")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

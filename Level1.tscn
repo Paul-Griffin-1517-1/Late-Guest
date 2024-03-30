@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://sphyq4i5acjq"]
+[gd_scene load_steps=7 format=3 uid="uid://sphyq4i5acjq"]
 
 [ext_resource type="PackedScene" uid="uid://dv47cp5ac3dqm" path="res://player.tscn" id="1_3qagt"]
 [ext_resource type="Texture2D" uid="uid://byosmmkkekb1h" path="res://icon.svg" id="3_7cuff"]
 [ext_resource type="PackedScene" uid="uid://5gs4ydhwbjlh" path="res://tile1.tscn" id="3_m4cky"]
+[ext_resource type="PackedScene" uid="uid://bkv8hmdb1crmc" path="res://tile2.tscn" id="4_aefsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oydw"]
 size = Vector2(128, 128)
@@ -31,9 +32,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 shape = SubResource("CircleShape2D_4jy5g")
 
-[node name="Player" parent="." instance=ExtResource("1_3qagt")]
-position = Vector2(1478, 212)
-
 [node name="Tile" parent="." instance=ExtResource("3_m4cky")]
 position = Vector2(134, 455)
 scale = Vector2(1, 4.12)
@@ -41,3 +39,24 @@ scale = Vector2(1, 4.12)
 [node name="Tile2" parent="." instance=ExtResource("3_m4cky")]
 position = Vector2(912, 999)
 scale = Vector2(5.83999, 1)
+
+[node name="Tile3" parent="." instance=ExtResource("4_aefsa")]
+position = Vector2(891, 1138)
+scale = Vector2(8.24, 1)
+
+[node name="Tile4" parent="." instance=ExtResource("4_aefsa")]
+position = Vector2(-132, 742)
+rotation = -1.57079
+scale = Vector2(8.24, 1)
+
+[node name="Tile5" parent="." instance=ExtResource("4_aefsa")]
+position = Vector2(2051, 772)
+rotation = -1.57079
+scale = Vector2(8.24, 1)
+
+[node name="Tile6" parent="." instance=ExtResource("4_aefsa")]
+position = Vector2(873, -167)
+scale = Vector2(8.24, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_3qagt")]
+position = Vector2(1478, 212)
