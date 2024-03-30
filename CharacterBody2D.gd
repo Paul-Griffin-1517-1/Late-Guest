@@ -36,6 +36,7 @@ func pp_float_movement(delta):
 
 func pp_normal_movement(delta):
 	is_floating = false
+	
 	set_collision_mask_value(1, true)
 	if not is_on_floor():
 		direction.y += gravity * delta
@@ -51,6 +52,8 @@ func pp_normal_movement(delta):
 		else:
 			if is_on_floor():
 				direction.y = JUMP_VELOCITY
+	if is_on_floor():
+		can_float = true
 	velocity.y = direction.y
 
 	direction.x = Input.get_axis("Move Left", "Move Right")
@@ -84,14 +87,17 @@ func pp_possess(delta):
 	pass
 
 
-
-func _physics_process(delta):
-	if Input.is_action_pressed("Float"):
-		state_chart.send_event("float_pressed")
-	else:
-		state_chart.send_event("float_not_pressed")
+#
+#func _physics_process(delta):
+	#
 	
 func _unhandled_input(event):
+	if event.is_action_pressed("Float"):
+		if can_float:
+			state_chart.send_event("float_pressed")
+	elif event.is_action_released("Float"):
+		state_chart.send_event("float_not_pressed")
+
 	if event.is_action_pressed("Possess") and bodies.size() > 0:
 		is_possessing = !is_possessing
 		for i in bodies:
@@ -134,3 +140,14 @@ func _on_possessing_state_state_entered():
 	sprite_2d_2.visible = true
 	sprite_2d_2.texture = bodies[0].get_child(0).texture
 	$GPUParticles2D.emitting = true
+
+@onready var timer := $Timer
+
+var can_float := true
+func _on_floating_state_entered():
+	timer.start()
+
+
+func _on_timer_timeout():
+	state_chart.send_event("float_not_pressed")
+	can_float = false

@@ -142,10 +142,16 @@ explosiveness = 1.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/States/NotFloating" to="." method="pp_normal_movement"]
+[connection signal="state_entered" from="StateChart/ParallelState/States/Floating" to="." method="_on_floating_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/States/Floating" to="." method="pp_float_movement"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/Normal" to="." method="_on_normal_state_entered"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/PossessingState" to="." method="_on_possessing_state_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/PossessingState" to="." method="pp_possess"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
