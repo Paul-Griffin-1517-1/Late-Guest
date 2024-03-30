@@ -13,23 +13,23 @@ radius = 101.05
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PossessableObject" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(1195, 616)
 collision_mask = 3
 mass = 0.1
 freeze_mode = 1
 
-[node name="Icon" type="Sprite2D" parent="PossessableObject"]
+[node name="Icon" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("3_7cuff")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PossessableObject"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_4oydw")
 
-[node name="Area2D" type="Area2D" parent="PossessableObject"]
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
 collision_layer = 2
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PossessableObject/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 shape = SubResource("CircleShape2D_4jy5g")
 
 [node name="Tile" parent="." instance=ExtResource("3_m4cky")]
