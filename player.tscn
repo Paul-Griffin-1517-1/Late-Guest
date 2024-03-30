@@ -1,0 +1,151 @@
+[gd_scene load_steps=18 format=3 uid="uid://dv47cp5ac3dqm"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_don5o"]
+[ext_resource type="Texture2D" uid="uid://ba85svb2mcoqx" path="res://Sprites/Untitled_Artwork-1.png" id="2_ckv20"]
+[ext_resource type="Texture2D" uid="uid://y18xdu0bp26y" path="res://Sprites/Untitled_Artwork-2.png" id="3_f1gl5"]
+[ext_resource type="Texture2D" uid="uid://c7s4awqeabhc1" path="res://Sprites/Untitled_Artwork-3.png" id="4_yfvfs"]
+[ext_resource type="Texture2D" uid="uid://d38n4fgwn1255" path="res://Sprites/Untitled_Artwork-4.png" id="5_8c52h"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="6_ca55y"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_iaute"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="7_uq1tl"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_2mtfv"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="9_ffwt4"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_6n06u"]
+[ext_resource type="Texture2D" uid="uid://byosmmkkekb1h" path="res://icon.svg" id="12_163ej"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iorso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ckv20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1gl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yfvfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8c52h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yfvfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1gl5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e48ye"]
+
+[sub_resource type="Curve" id="Curve_56wmi"]
+_data = [Vector2(0.00896861, 0.613383), 0.0, 3.82614, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x00yd"]
+curve = SubResource("Curve_56wmi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2js3n"]
+lifetime_randomness = 0.13
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_x00yd")
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_don5o")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.168251, 0.168251)
+sprite_frames = SubResource("SpriteFrames_iorso")
+frame_progress = 0.00323417
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.6245, 4.6245)
+shape = SubResource("CapsuleShape2D_e48ye")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5.50047, 5.50047)
+shape = SubResource("CapsuleShape2D_e48ye")
+
+[node name="StateChartDebugger" parent="." instance=ExtResource("6_iaute")]
+visible = false
+offset_right = 467.0
+offset_bottom = 303.0
+initial_node_to_watch = NodePath("../StateChart")
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("6_ca55y")
+
+[node name="ParallelState" type="Node" parent="StateChart"]
+script = ExtResource("7_uq1tl")
+
+[node name="States" type="Node" parent="StateChart/ParallelState"]
+script = ExtResource("8_2mtfv")
+initial_state = NodePath("Floating")
+
+[node name="NotFloating" type="Node" parent="StateChart/ParallelState/States"]
+script = ExtResource("9_ffwt4")
+
+[node name="ToFloating" type="Node" parent="StateChart/ParallelState/States/NotFloating"]
+script = ExtResource("10_6n06u")
+to = NodePath("../../Floating")
+event = &"float_pressed"
+
+[node name="Floating" type="Node" parent="StateChart/ParallelState/States"]
+script = ExtResource("9_ffwt4")
+
+[node name="ToNotFloating" type="Node" parent="StateChart/ParallelState/States/Floating"]
+script = ExtResource("10_6n06u")
+to = NodePath("../../NotFloating")
+event = &"float_not_pressed"
+
+[node name="CompoundState" type="Node" parent="StateChart/ParallelState"]
+script = ExtResource("8_2mtfv")
+initial_state = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("9_ffwt4")
+
+[node name="ToPossessing" type="Node" parent="StateChart/ParallelState/CompoundState/Normal"]
+script = ExtResource("10_6n06u")
+to = NodePath("../../PossessingState")
+event = &"possessed"
+
+[node name="PossessingState" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("9_ffwt4")
+
+[node name="ToNormal" type="Node" parent="StateChart/ParallelState/CompoundState/PossessingState"]
+script = ExtResource("10_6n06u")
+to = NodePath("../../Normal")
+event = &"not_possessed"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_2js3n")
+texture = ExtResource("12_163ej")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/States/NotFloating" to="." method="pp_normal_movement"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/States/Floating" to="." method="pp_float_movement"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/Normal" to="." method="_on_normal_state_entered"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/PossessingState" to="." method="_on_possessing_state_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/PossessingState" to="." method="pp_possess"]
