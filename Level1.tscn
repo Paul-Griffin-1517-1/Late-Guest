@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://sphyq4i5acjq"]
+[gd_scene load_steps=8 format=3 uid="uid://sphyq4i5acjq"]
 
 [ext_resource type="PackedScene" uid="uid://dv47cp5ac3dqm" path="res://player.tscn" id="1_3qagt"]
 [ext_resource type="Texture2D" uid="uid://byosmmkkekb1h" path="res://icon.svg" id="3_7cuff"]
 [ext_resource type="PackedScene" uid="uid://5gs4ydhwbjlh" path="res://tile1.tscn" id="3_m4cky"]
 [ext_resource type="PackedScene" uid="uid://bkv8hmdb1crmc" path="res://tile2.tscn" id="4_aefsa"]
+[ext_resource type="PackedScene" uid="uid://b6jepubld61ch" path="res://condition_zone.tscn" id="5_3pa4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oydw"]
 size = Vector2(128, 128)
@@ -14,9 +15,8 @@ radius = 101.05
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(1195, 616)
+position = Vector2(288, 756)
 collision_mask = 3
-mass = 0.1
 freeze_mode = 1
 
 [node name="Icon" type="Sprite2D" parent="RigidBody2D"]
@@ -32,13 +32,13 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 shape = SubResource("CircleShape2D_4jy5g")
 
-[node name="Tile" parent="." instance=ExtResource("3_m4cky")]
-position = Vector2(134, 455)
-scale = Vector2(1, 4.12)
-
 [node name="Tile2" parent="." instance=ExtResource("3_m4cky")]
-position = Vector2(912, 999)
-scale = Vector2(5.83999, 1)
+position = Vector2(148, 853)
+scale = Vector2(1.17073, -0.144234)
+
+[node name="Tile8" parent="." instance=ExtResource("3_m4cky")]
+position = Vector2(1666, 599)
+scale = Vector2(0.15469, -3.7556)
 
 [node name="Tile3" parent="." instance=ExtResource("4_aefsa")]
 position = Vector2(891, 1138)
@@ -59,4 +59,26 @@ position = Vector2(873, -167)
 scale = Vector2(8.24, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_3qagt")]
-position = Vector2(1478, 212)
+position = Vector2(114, 756)
+
+[node name="ConditionZone" parent="." instance=ExtResource("5_3pa4j")]
+position = Vector2(1875, 628)
+scale = Vector2(0.12, 1)
+
+[node name="ConditionZone3" parent="." instance=ExtResource("5_3pa4j")]
+position = Vector2(1103, 897)
+scale = Vector2(2.60463, 0.03556)
+zone_type = "LOSE"
+
+[node name="ConditionZone2" parent="." instance=ExtResource("5_3pa4j")]
+position = Vector2(963, 952)
+scale = Vector2(4.12, 1e-05)
+zone_type = "LOSE"
+
+[node name="Tile7" parent="." instance=ExtResource("3_m4cky")]
+position = Vector2(1100, 912)
+scale = Vector2(3.27999, 0.08)
+
+[node name="ConditionZone4" parent="." instance=ExtResource("5_3pa4j")]
+position = Vector2(1875, 628)
+scale = Vector2(0.12, 1)
