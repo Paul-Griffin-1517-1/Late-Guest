@@ -59,7 +59,7 @@ initial_velocity_max = 1000.0
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_x00yd")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_don5o")

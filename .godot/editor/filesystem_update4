@@ -1,5 +1,9 @@
+res://Global.gd
+res://Global.tscn
+res://defeat.tscn
 res://Level1.tscn
-res://CharacterBody2D.gd
+res://ConditionZone.gd
 res://player.tscn
-res://tile1.tscn
+res://condition_zone.tscn
 res://tile2.tscn
+res://CharacterBody2D.gd

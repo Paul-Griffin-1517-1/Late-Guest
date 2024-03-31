@@ -11,14 +11,11 @@ var is_possessing := false :
 			state_chart.send_event("possessed")
 		else:
 			state_chart.send_event("not_possessed")
-		
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 var direction : Vector2
-
 var bodies : Array[RigidBody2D]
-
 var is_floating := false
 
 func pp_float_movement(delta):
