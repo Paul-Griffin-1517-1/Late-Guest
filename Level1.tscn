@@ -69,6 +69,7 @@ scale = Vector2(0.12, 1)
 position = Vector2(1103, 897)
 scale = Vector2(2.60463, 0.03556)
 zone_type = "LOSE"
+condition = "WHEN_POSSESSED"
 
 [node name="ConditionZone2" parent="." instance=ExtResource("5_3pa4j")]
 position = Vector2(963, 952)
