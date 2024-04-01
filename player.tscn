@@ -87,7 +87,7 @@ script = ExtResource("7_uq1tl")
 
 [node name="States" type="Node" parent="StateChart/ParallelState"]
 script = ExtResource("8_2mtfv")
-initial_state = NodePath("Floating")
+initial_state = NodePath("NotFloating")
 
 [node name="NotFloating" type="Node" parent="StateChart/ParallelState/States"]
 script = ExtResource("9_ffwt4")

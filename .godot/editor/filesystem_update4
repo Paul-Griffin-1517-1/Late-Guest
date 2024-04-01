@@ -6,5 +6,4 @@ res://condition_zone.tscn
 res://Level1.tscn
 res://Level2.tscn
 res://Level3.tscn
-res://ConditionZone.gd
 res://CharacterBody2D.gd

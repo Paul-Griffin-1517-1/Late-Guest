@@ -15,18 +15,20 @@ radius = 101.05
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(128, 194)
-scale = Vector2(0.28, 0.28)
+position = Vector2(139, 142)
 collision_mask = 3
 freeze_mode = 1
 
 [node name="Icon" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.28, 0.28)
 texture = ExtResource("1_wyt0w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(0.28, 0.28)
 shape = SubResource("RectangleShape2D_4oydw")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D"]
+scale = Vector2(0.28, 0.28)
 collision_layer = 2
 collision_mask = 3
 

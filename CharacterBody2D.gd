@@ -121,6 +121,7 @@ func _ready():
 func _on_normal_state_entered():
 	sprite.visible = true
 	sprite_2d_2.visible = false
+	scale = Vector2(1,1)
 	for i in bodies:
 		i.global_position = global_position
 		#global_position.y += 10
@@ -138,6 +139,9 @@ func _on_possessing_state_state_entered():
 	sprite.visible = false
 	sprite_2d_2.visible = true
 	sprite_2d_2.texture = bodies[0].get_child(0).texture
+#4.624
+	scale = bodies[0].get_child(0).scale
+	print("Scale is "+str(scale))
 	$GPUParticles2D.emitting = true
 
 @onready var timer := $Timer
