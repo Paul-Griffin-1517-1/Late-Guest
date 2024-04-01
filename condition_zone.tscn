@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6jepubld61ch"]
+
+[ext_resource type="Script" path="res://ConditionZone.gd" id="1_sef3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hk5tb"]
+
+[node name="ConditionZone" type="Area2D"]
+collision_mask = 15
+script = ExtResource("1_sef3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(22.955, 22.955)
+shape = SubResource("CircleShape2D_hk5tb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
