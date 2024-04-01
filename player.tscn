@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_2mtfv"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="9_ffwt4"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_6n06u"]
-[ext_resource type="Texture2D" uid="uid://byosmmkkekb1h" path="res://icon.svg" id="12_163ej"]
+[ext_resource type="Texture2D" uid="uid://c42tmeu8q2qjd" path="res://Sprites/poof.png" id="11_ao058"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iorso"]
 animations = [{
@@ -137,7 +137,7 @@ explosiveness = 1.0
 emitting = false
 amount_ratio = 0.1512
 process_material = SubResource("ParticleProcessMaterial_2js3n")
-texture = ExtResource("12_163ej")
+texture = ExtResource("11_ao058")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
