@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dv47cp5ac3dqm"]
+[gd_scene load_steps=18 format=3 uid="uid://dv47cp5ac3dqm"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_don5o"]
 [ext_resource type="Texture2D" uid="uid://ba85svb2mcoqx" path="res://Sprites/Untitled_Artwork-1.png" id="2_ckv20"]
@@ -56,6 +56,19 @@ spread = 180.0
 initial_velocity_min = 1000.0
 initial_velocity_max = 1000.0
 gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_x00yd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vf3wj"]
+lifetime_randomness = 0.13
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.1
 scale_curve = SubResource("CurveTexture_x00yd")
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -135,8 +148,7 @@ explosiveness = 1.0
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 emitting = false
-amount_ratio = 0.1512
-process_material = SubResource("ParticleProcessMaterial_2js3n")
+process_material = SubResource("ParticleProcessMaterial_vf3wj")
 texture = ExtResource("11_ao058")
 lifetime = 0.3
 one_shot = true
