@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv47cp5ac3dqm"]
+[gd_scene load_steps=17 format=3 uid="uid://dv47cp5ac3dqm"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_don5o"]
 [ext_resource type="Texture2D" uid="uid://ba85svb2mcoqx" path="res://Sprites/Untitled_Artwork-1.png" id="2_ckv20"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c7s4awqeabhc1" path="res://Sprites/Untitled_Artwork-3.png" id="4_yfvfs"]
 [ext_resource type="Texture2D" uid="uid://d38n4fgwn1255" path="res://Sprites/Untitled_Artwork-4.png" id="5_8c52h"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="6_ca55y"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_iaute"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="7_uq1tl"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_2mtfv"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="9_ffwt4"]
@@ -80,12 +79,6 @@ collision_mask = 2
 scale = Vector2(5.50047, 5.50047)
 shape = SubResource("CapsuleShape2D_e48ye")
 
-[node name="StateChartDebugger" parent="." instance=ExtResource("6_iaute")]
-visible = false
-offset_right = 467.0
-offset_bottom = 303.0
-initial_node_to_watch = NodePath("../StateChart")
-
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("6_ca55y")
 
@@ -134,6 +127,15 @@ event = &"not_possessed"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
+process_material = SubResource("ParticleProcessMaterial_2js3n")
+texture = ExtResource("2_ckv20")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+emitting = false
+amount_ratio = 0.1512
 process_material = SubResource("ParticleProcessMaterial_2js3n")
 texture = ExtResource("12_163ej")
 lifetime = 0.3

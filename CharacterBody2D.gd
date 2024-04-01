@@ -144,6 +144,7 @@ func _on_possessing_state_state_entered():
 
 var can_float := true
 func _on_floating_state_entered():
+	$GPUParticles2D2.emitting = true
 	timer.start()
 
 
