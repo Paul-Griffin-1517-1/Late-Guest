@@ -24,6 +24,7 @@ func pp_float_movement(delta):
 	direction.y = Input.get_axis("Move Up", "Move Down")
 	velocity.y = lerpf(velocity.y,direction.y * SPEED,2*delta)
 	if is_possessing:
+		set_collision_mask_value(1, true)
 		velocity.y += (gravity * delta)*.2
 		if bodies.size() > 0:
 			velocity.y *= bodies[0].mass
@@ -94,6 +95,7 @@ func _unhandled_input(event):
 			state_chart.send_event("float_pressed")
 	elif event.is_action_released("Float"):
 		state_chart.send_event("float_not_pressed")
+		can_float = false
 
 	if event.is_action_pressed("Possess") and bodies.size() > 0:
 		is_possessing = !is_possessing
