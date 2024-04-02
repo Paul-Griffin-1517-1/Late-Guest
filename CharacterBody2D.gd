@@ -52,6 +52,7 @@ func pp_normal_movement(delta):
 				direction.y = JUMP_VELOCITY
 	if is_on_floor():
 		can_float = true
+		float_value_temp = 1
 	velocity.y = direction.y
 
 	direction.x = Input.get_axis("Move Left", "Move Right")
@@ -88,7 +89,14 @@ func pp_possess(delta):
 #
 #func _physics_process(delta):
 	#
-	
+var float_value_temp := 1.0
+func _process(delta):
+	if is_floating:
+		Ui.value = timer.time_left
+	else:
+		Ui.value = float_value_temp
+
+
 func _unhandled_input(event):
 	if event.is_action_pressed("Float"):
 		if can_float:
@@ -96,6 +104,7 @@ func _unhandled_input(event):
 	elif event.is_action_released("Float"):
 		state_chart.send_event("float_not_pressed")
 		can_float = false
+		float_value_temp = 0
 
 	if event.is_action_pressed("Possess") and bodies.size() > 0:
 		is_possessing = !is_possessing
@@ -153,5 +162,6 @@ func _on_floating_state_entered():
 
 
 func _on_timer_timeout():
+	float_value_temp = 0
 	state_chart.send_event("float_not_pressed")
 	can_float = false

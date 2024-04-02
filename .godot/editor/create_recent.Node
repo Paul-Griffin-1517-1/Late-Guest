@@ -1,6 +1,9 @@
+Button
+VBoxContainer
+ProgressBar
+Label
 CollisionShape2D
 Area2D
-Label
 Node
 Timer
 Polygon2D
@@ -10,5 +13,3 @@ StaticBody2D
 TileMap
 GPUParticles2D
 AtomicState
-CompoundState
-ParallelState
