@@ -4,6 +4,7 @@ extends Area2D
 var dialogue_resource
 
 var can_action := false
+var t := 0
 
 func _ready():
 	dialogue_resource = load(_dialogue_resource)
@@ -17,5 +18,5 @@ func _unhandled_input(event):
 func action():
 	if can_action:
 		can_action = false
-		print("Talk")
 		DialogueManager.show_dialogue_balloon_scene("res://Dialogue/balloon.tscn",dialogue_resource, name, [self])
+		t += 1

@@ -6,3 +6,6 @@ res://Scenes/Rooms/room_base.gd
 res://Dialogue/balloon.tscn
 res://Scenes/Components/SpawnBlockComponent.gd
 res://Scenes/Rooms/DialogueTrigger.gd
+res://Autoloads/Debug.tscn
+res://Autoloads/SceneManager.gd
+res://Autoloads/Debug.gd

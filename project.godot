@@ -22,6 +22,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Debug="*res://Autoloads/Debug.tscn"
+SceneManager="*res://Autoloads/SceneManager.gd"
 
 [dialogue_manager]
 

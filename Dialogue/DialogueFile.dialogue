@@ -1,5 +1,12 @@
 ~ intro
-Bellhop: Welcome... to the [wave amp=45 freq=8]LATE HOTEL![/wave]
-# TODO: Replace with the actual hotel name
+if t == 0
+	Bellhop: Welcome... to the [wave amp=45 freq=8]LATE HOTEL![/wave]
+	# TODO: Replace with the actual hotel name
+elif t == 1
+	Bellhop: I'm sorry to hear of your... [wave amp=45 freq=8]affliction.[/wave] But think--there are opportunities to be had, here!
+	Bellhop: All will be well. [i]I promise you that.[/i]
+else:
+	Bellhop: Come now! There are things to do! Prizes to await!
+	Bellhop: You're dead. Enjoy it! You won't be able to take any of it with you, so why worry?
 => END
 
