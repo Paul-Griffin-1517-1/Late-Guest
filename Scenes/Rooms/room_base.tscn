@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qud1jxjm6hcn"]
+[gd_scene load_steps=5 format=3 uid="uid://qud1jxjm6hcn"]
 
 [ext_resource type="Script" path="res://Scenes/Rooms/room_base.gd" id="1_bdx4c"]
-[ext_resource type="Script" path="res://Scenes/Rooms/DialogueTrigger.gd" id="2_ughuv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_eyf01"]
-radius = 86.56
+[ext_resource type="PackedScene" uid="uid://dich7yr0vkibt" path="res://Scenes/Triggers/dialogue_trigger.tscn" id="2_n3cq6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmlnd"]
 radius = 134.41
@@ -19,12 +16,7 @@ script = ExtResource("1_bdx4c")
 
 [node name="Triggers" type="Node2D" parent="."]
 
-[node name="DialogueTrigger" type="Area2D" parent="Triggers"]
-position = Vector2(1529, 782)
-script = ExtResource("2_ughuv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/DialogueTrigger"]
-shape = SubResource("CircleShape2D_eyf01")
+[node name="intro" parent="Triggers" instance=ExtResource("2_n3cq6")]
 
 [node name="ExitPointsHolder" type="Node2D" parent="."]
 

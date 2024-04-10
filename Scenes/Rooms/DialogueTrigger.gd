@@ -18,4 +18,4 @@ func action():
 	if can_action:
 		can_action = false
 		print("Talk")
-		DialogueManager.show_dialogue_balloon_scene("res://Dialogue/balloon.tscn",dialogue_resource, "intro", [self])
+		DialogueManager.show_dialogue_balloon_scene("res://Dialogue/balloon.tscn",dialogue_resource, name, [self])

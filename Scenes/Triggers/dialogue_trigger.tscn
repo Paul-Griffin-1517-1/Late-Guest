@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dich7yr0vkibt"]
+
+[ext_resource type="Script" path="res://Scenes/Rooms/DialogueTrigger.gd" id="1_p25a7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyf01"]
+radius = 86.56
+
+[node name="DialogueTrigger" type="Area2D"]
+position = Vector2(1529, 782)
+script = ExtResource("1_p25a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eyf01")
