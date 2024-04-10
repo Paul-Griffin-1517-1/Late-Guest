@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://qud1jxjm6hcn"]
+
+[ext_resource type="Script" path="res://Scenes/Rooms/room_base.gd" id="1_bdx4c"]
+[ext_resource type="Script" path="res://Scenes/Rooms/DialogueTrigger.gd" id="2_ughuv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyf01"]
+radius = 86.56
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmlnd"]
+radius = 134.41
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg7e5"]
+size = Vector2(100, 100)
+
+[node name="RoomBase" type="Node2D"]
+script = ExtResource("1_bdx4c")
+
+[node name="SpawnPointsHolder" type="Node2D" parent="."]
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="DialogueTrigger" type="Area2D" parent="Triggers"]
+position = Vector2(1529, 782)
+script = ExtResource("2_ughuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/DialogueTrigger"]
+shape = SubResource("CircleShape2D_eyf01")
+
+[node name="ExitPointsHolder" type="Node2D" parent="."]
+
+[node name="ExitPoint" type="Area2D" parent="ExitPointsHolder"]
+position = Vector2(1663, 184)
+
+[node name="Marker2D" type="Marker2D" parent="ExitPointsHolder/ExitPoint"]
+gizmo_extents = 55.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPointsHolder/ExitPoint"]
+shape = SubResource("CircleShape2D_hmlnd")
+
+[node name="LevelHolder" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelHolder"]
+position = Vector2(937, 909)
+scale = Vector2(25.8, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelHolder/StaticBody2D"]
+shape = SubResource("RectangleShape2D_pg7e5")
+
+[node name="ColorRect" type="ColorRect" parent="LevelHolder/StaticBody2D"]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
