@@ -1,12 +1,3 @@
-res://player.tscn
-res://tile2.tscn
-res://Global.tscn
-res://defeat.tscn
-res://condition_zone.tscn
-res://Level1.tscn
-res://Level2.tscn
-res://Level3.tscn
-res://ui.tscn
-res://CharacterBody2D.gd
-res://victory.tscn
-res://victory.gd
+res://Scenes/game.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/Player/player.gd

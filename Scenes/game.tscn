@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://xqrl5epe42xm"]
+
+[ext_resource type="PackedScene" uid="uid://twyuy7tyhv7l" path="res://Scenes/Player/player.tscn" id="1_y2pbn"]
+
+[node name="Game" type="Node2D"]
+
+[node name="GameHolder" type="Node2D" parent="."]
+
+[node name="Player" parent="GameHolder" instance=ExtResource("1_y2pbn")]
+
+[node name="RoomHolder" type="Node2D" parent="GameHolder"]
+
+[node name="Room1" type="Node2D" parent="GameHolder/RoomHolder"]
