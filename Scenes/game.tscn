@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://xqrl5epe42xm"]
+[gd_scene load_steps=4 format=3 uid="uid://xqrl5epe42xm"]
 
+[ext_resource type="Script" path="res://Scenes/GameHolder.gd" id="1_k1dqp"]
 [ext_resource type="PackedScene" uid="uid://twyuy7tyhv7l" path="res://Scenes/Player/player.tscn" id="1_y2pbn"]
 [ext_resource type="PackedScene" uid="uid://qud1jxjm6hcn" path="res://Scenes/Rooms/room_base.tscn" id="2_u53q7"]
 
 [node name="Game" type="Node2D"]
 
 [node name="GameHolder" type="Node2D" parent="."]
+script = ExtResource("1_k1dqp")
 
 [node name="Player" parent="GameHolder" instance=ExtResource("1_y2pbn")]
 

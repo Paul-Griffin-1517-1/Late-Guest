@@ -9,3 +9,10 @@ res://Scenes/state_machine/state_machine/state_machine_state.gd
 res://Scenes/Rooms/DialogueTrigger.gd
 res://Scenes/Triggers/dialogue_trigger.tscn
 res://Scenes/Player/InDialogueState.gd
+res://Scenes/Rooms/room_base.gd
+res://Scenes/Triggers/load_zone.tscn
+res://Scenes/Triggers/load_zone.gd
+res://Autoloads/SceneManager.gd
+res://Dialogue/balloon.tscn
+res://Scenes/GameHolder.gd
+res://Scenes/Rooms/room_2.tscn

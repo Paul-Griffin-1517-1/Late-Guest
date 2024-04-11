@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qud1jxjm6hcn"]
+[gd_scene load_steps=5 format=3 uid="uid://xb0i5ujbm2se"]
 
-[ext_resource type="Script" path="res://Scenes/Rooms/room_base.gd" id="1_bdx4c"]
-[ext_resource type="PackedScene" uid="uid://ccb1c1hx0ybg7" path="res://Scenes/Triggers/load_zone.tscn" id="2_7vj2i"]
-[ext_resource type="PackedScene" uid="uid://dich7yr0vkibt" path="res://Scenes/Triggers/dialogue_trigger.tscn" id="2_n3cq6"]
+[ext_resource type="Script" path="res://Scenes/Rooms/room_base.gd" id="1_cl5fh"]
+[ext_resource type="PackedScene" uid="uid://ccb1c1hx0ybg7" path="res://Scenes/Triggers/load_zone.tscn" id="2_s3cnm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hmlnd"]
 radius = 134.41
@@ -11,7 +10,7 @@ radius = 134.41
 size = Vector2(100, 100)
 
 [node name="RoomBase" type="Node2D"]
-script = ExtResource("1_bdx4c")
+script = ExtResource("1_cl5fh")
 
 [node name="SpawnPointsHolder" type="Node2D" parent="."]
 
@@ -21,18 +20,14 @@ gizmo_extents = 100.0
 
 [node name="LoadZonesHolder" type="Node2D" parent="."]
 
-[node name="LoadZone" parent="LoadZonesHolder" instance=ExtResource("2_7vj2i")]
-position = Vector2(25, 723)
-target_level = "res://Scenes/Rooms/room_2.tscn"
+[node name="LoadZone" parent="LoadZonesHolder" instance=ExtResource("2_s3cnm")]
 
 [node name="Triggers" type="Node2D" parent="."]
-
-[node name="intro" parent="Triggers" instance=ExtResource("2_n3cq6")]
 
 [node name="ExitPointsHolder" type="Node2D" parent="."]
 
 [node name="ExitPoint" type="Area2D" parent="ExitPointsHolder"]
-position = Vector2(1663, 184)
+position = Vector2(1932, -169)
 
 [node name="Marker2D" type="Marker2D" parent="ExitPointsHolder/ExitPoint"]
 gizmo_extents = 55.0
@@ -44,6 +39,7 @@ shape = SubResource("CircleShape2D_hmlnd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LevelHolder"]
 position = Vector2(937, 909)
+rotation = 0.519208
 scale = Vector2(25.8, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelHolder/StaticBody2D"]
@@ -55,21 +51,11 @@ offset_top = -50.0
 offset_right = 50.0
 offset_bottom = 50.0
 
-[node name="Label" type="Label" parent="LevelHolder"]
-offset_left = 449.0
-offset_top = -27.0
-offset_right = 1203.0
-offset_bottom = 282.0
-rotation = 0.13167
+[node name="Label" type="Label" parent="."]
+offset_left = 548.0
+offset_top = 62.0
+offset_right = 1302.0
+offset_bottom = 371.0
+rotation = -0.158718
 theme_override_font_sizes/font_size = 226
-text = "Level 1"
-
-[node name="Label2" type="Label" parent="LevelHolder"]
-offset_left = 1414.0
-offset_top = 602.0
-offset_right = 2241.0
-offset_bottom = 911.0
-rotation = 0.012317
-scale = Vector2(0.284846, 0.284846)
-theme_override_font_sizes/font_size = 226
-text = "Bellhop"
+text = "Level 2"

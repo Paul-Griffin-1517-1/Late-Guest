@@ -17,7 +17,6 @@ radius = 100.67
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
-floor_snap_length = 5.0
 script = ExtResource("1_ji6k5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

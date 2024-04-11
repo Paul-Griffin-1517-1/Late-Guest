@@ -1,6 +1,7 @@
 extends Node
 
-var _current_room :Variant= "room_base":
-	get:
-		return load("res://Scenes/Rooms/"+_current_room+".tscn")
-
+signal current_scene_changed
+var _current_room :Variant="res://Scenes/Rooms/room_base.tscn":
+	set(value):
+		_current_room = value
+		current_scene_changed.emit()

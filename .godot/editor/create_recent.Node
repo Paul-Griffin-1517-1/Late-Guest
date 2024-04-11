@@ -1,3 +1,5 @@
+Label
+Marker2D
 CollisionShape2D
 Area2D
 StateMachineState
@@ -6,6 +8,5 @@ ColorRect
 StaticBody2D
 Node
 Node2D
-Marker2D
 Sprite2D
 CharacterBody2D
