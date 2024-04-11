@@ -9,11 +9,11 @@ var t := 0
 func _ready():
 	dialogue_resource = load(_dialogue_resource)
 
-func _unhandled_input(event):
-	## TODO: This is temp code just to make sure the action() method works.
-	if event.is_action_pressed("Jump"):
-		can_action = true
-		action()
+#func _unhandled_input(event):
+	### TODO: This is temp code just to make sure the action() method works.
+	#if event.is_action_pressed("Jump"):
+		#can_action = true
+		#action()
 
 func action():
 	if can_action:

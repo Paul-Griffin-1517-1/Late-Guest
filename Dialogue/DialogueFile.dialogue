@@ -7,6 +7,6 @@ elif t == 1
 	Bellhop: All will be well. [i]I promise you that.[/i]
 else:
 	Bellhop: Come now! There are things to do! Prizes to await!
-	Bellhop: You're dead. Enjoy it! You won't be able to take any of it with you, so why worry?
+	Bellhop: You're dead. Enjoy it! You won't be able to take any of it with you, so why worry about what you leave behind?
 => END
 

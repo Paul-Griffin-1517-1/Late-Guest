@@ -2,4 +2,10 @@ res://Scenes/game.tscn
 res://Scenes/Player/player.tscn
 res://Scenes/Rooms/room_base.tscn
 res://Autoloads/Debug.tscn
+res://Scenes/Player/LoadState.gd
 res://Scenes/Player/player.gd
+res://Scenes/Player/NormalState.gd
+res://Scenes/state_machine/state_machine/state_machine_state.gd
+res://Scenes/Rooms/DialogueTrigger.gd
+res://Scenes/Triggers/dialogue_trigger.tscn
+res://Scenes/Player/InDialogueState.gd
