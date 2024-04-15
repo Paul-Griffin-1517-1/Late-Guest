@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://twyuy7tyhv7l"]
+[gd_scene load_steps=11 format=3 uid="uid://twyuy7tyhv7l"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_ji6k5"]
 [ext_resource type="Texture2D" uid="uid://b20yjq8qqepi6" path="res://icon.svg" id="2_qv6q2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Player/LoadState.gd" id="4_6pr5s"]
 [ext_resource type="Script" path="res://Scenes/state_machine/state_machine/state_machine_state.gd" id="4_yp4hg"]
 [ext_resource type="Script" path="res://Scenes/Player/NormalState.gd" id="5_gkaxa"]
+[ext_resource type="Script" path="res://Scenes/Player/FloatState.gd" id="6_s51q8"]
 [ext_resource type="Script" path="res://Scenes/Player/InDialogueState.gd" id="7_ctuuf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sa0bn"]
@@ -17,8 +18,14 @@ radius = 100.67
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 3
 floor_snap_length = 5.0
 script = ExtResource("1_ji6k5")
+
+[node name="CollisionBodyFinder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBodyFinder"]
+shape = SubResource("CapsuleShape2D_sa0bn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sa0bn")
@@ -37,7 +44,7 @@ script = ExtResource("4_6pr5s")
 script = ExtResource("5_gkaxa")
 
 [node name="FloatState" type="Node" parent="StateMachine"]
-script = ExtResource("4_yp4hg")
+script = ExtResource("6_s51q8")
 
 [node name="InDialogueState" type="Node" parent="StateMachine"]
 script = ExtResource("7_ctuuf")
@@ -58,5 +65,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerFinder"]
 shape = SubResource("CircleShape2D_mlikd")
 
+[connection signal="body_entered" from="CollisionBodyFinder" to="." method="_on_collision_body_finder_body_entered"]
+[connection signal="body_exited" from="CollisionBodyFinder" to="." method="_on_collision_body_finder_body_exited"]
 [connection signal="area_entered" from="TriggerFinder" to="." method="_on_trigger_finder_area_entered"]
 [connection signal="area_exited" from="TriggerFinder" to="." method="_on_trigger_finder_area_exited"]

@@ -1,6 +1,6 @@
 ~ intro
 if t == 0
-	Bellhop: Welcome... to the [wave amp=45 freq=8]LATE HOTEL![/wave]
+	Bellhop: Welcome... to the [wave amp=45 freq=8]VEILED HOTEL![/wave]
 	# TODO: Replace with the actual hotel name
 elif t == 1
 	Bellhop: I'm sorry to hear of your... [wave amp=45 freq=8]affliction.[/wave] But think--there are opportunities to be had, here!

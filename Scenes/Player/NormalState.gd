@@ -13,3 +13,10 @@ func _physics_process(delta):
 	
 	
 	s.move_and_slide()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("Float"):
+		state_machine.enter("FloatState")
+	if event.is_action_pressed("Possess"):
+		s.try_possess()
+
